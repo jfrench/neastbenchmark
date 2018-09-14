@@ -5,7 +5,7 @@ This package contains benchmark data for evaluating the power of disease cluster
 
 Each county is geographically represented by a centroid coordinate.  The observational data were originally used to identify clusters of breast cancer mortality in Kulldorff et al. (1997).  The original circular cluster benchmark data were produced by Song and Kulldorff (2003).  The irregularly-shaped cluster benchmark data were produced by Duczmal et al. (2006).  
 
-Martin Kulldorff, Eric J. Feuer, Barry A. Miller, Laurence S. Freedma; Breast Cancer Clusters in the Northeast United States: A Geographic Analysis, American Journal of Epidemiology, Volume 146, Issue 2, 15 July 1997, Pages 161–170, https://doi.org/10.1093/oxfordjournals.aje.a009247
+Martin Kulldorff, Eric J. Feuer, Barry A. Miller, Laurence S. Freedman; Breast Cancer Clusters in the Northeast United States: A Geographic Analysis, American Journal of Epidemiology, Volume 146, Issue 2, 15 July 1997, Pages 161–170, https://doi.org/10.1093/oxfordjournals.aje.a009247
 
 Song, C., & Kulldorff, M. (2003). Power evaluation of disease clustering tests. International Journal of Health Geographics, 2, 9. http://doi.org/10.1186/1476-072X-2-9
 
