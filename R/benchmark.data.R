@@ -1,9 +1,9 @@
-#' Benchmark data sets
+#' Automatic benchmarking of data sets
 #' 
 #' This function provides an automated mechanism for 
 #' producing the largest test statistic for each simulated
-#' data set in one of the \code{\link{benchmark2003}} or
-#' \code{\link{benchmark2006}} data sets.
+#' data set in one of the \code{benchmark2003} or
+#' \code{benchmark2006} data sets.
 #' 
 #' For the specified data sets, \code{TESTFUN} is applied
 #' to each row of the specified data sets.
@@ -17,12 +17,13 @@
 #' @param SAVE A logical value indicating whether the results
 #' should be saved as an rda file.  If \code{TRUE}, then the
 #' file is saved as 
-#' \code{paste("t", null.name, "_", test.name, ".rda", sep = "")}
-#' to the current working directly.  If FALSE, the vector is returned.
+#' \code{paste("t", data.name, "_", test.name, ".rda", sep = "")}
+#' to the current working directly.  If FALSE, a list of
+#' results is returned.
 #' Default is \code{FALSE}.
-#' @param ... Additional arguments passed on to the MAXFUN and \code{\link[pbapply]{pbapply}}.
+#' @param ... Additional arguments passed on to the TESTFUN and \code{\link[pbapply]{pbapply}}.
 #'
-#' @return A vector of the largest test statistics for each simulated data set, or writing out to an rda file.
+#' @return A list of results or writing out to an rda file.
 #' @export 
 #'
 #' @examples
@@ -50,7 +51,7 @@
 #'   # compute yin for each zone
 #'   yin = sapply(zones, function(zone) sum(cases[zone]))
 #'   # take max over statistics of all zones
-#'   tobs = scan.stat(yin, ein, eout, ty)
+#'   tobs = smerc::scan.stat(yin, ein, eout, ty)
 #'   wmax = which.max(tobs)
 #'   return(list(tmax = tobs[wmax],
 #'               mlc = zones[[wmax]]))
@@ -72,19 +73,34 @@ benchmark.data = function(TESTFUN, test.name,
   } 
 
   outlist = vector("list", length(data.name))
-  for (i in seq_along(data.name)) {
-    dname = data.name[i]
-    do.call(data, list(dname))
-    oname = paste("t", dname, sep = "")
-    message(paste("Analyzing",dname))
-    tdata = pbapply::pbapply(get(dname), 1, 
-                             FUN = TESTFUN, 
-                             ...)
-    if (SAVE) {
-      assign(oname, tdata)
-      save(list = oname, file = save_nm, compress = "bzip2")
+  for (idx in seq_along(data.name)) {
+    dname = data.name[idx]
+    if(dname == "c") {
+      data(c)
+      message("Analyzing c")
+      tc = pbapply::pbapply(c, 1, 
+                               FUN = TESTFUN, 
+                               ...)
+      save_nm = paste("tc_", test.name, ".rda", sep = "")
+      if (SAVE) {
+        save(tc, file = save_nm, compress = "bzip2")
+      } else {
+        outlist[[idx]] = c
+      }
     } else {
-      outlist[[i]] = tdata
+      do.call(utils::data, list(dname))
+      oname = paste("t", dname, sep = "")
+      message(paste("Analyzing",dname))
+      tdata = pbapply::pbapply(get(dname), 1, 
+                               FUN = TESTFUN, 
+                               ...)
+      save_nm = paste(oname, "_", test.name, ".rda", sep = "")
+      if (SAVE) {
+        assign(oname, tdata)
+        save(list = oname, file = save_nm, compress = "bzip2")
+      } else {
+        outlist[[idx]] = tdata
+      }
     }
   }
   if (SAVE) {

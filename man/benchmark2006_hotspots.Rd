@@ -14,9 +14,7 @@
 \alias{j_hotspot}
 \alias{k_hotspot}
 \title{Hotspots for benchmark2006 data}
-\format{A vector
-
-Duczmal, L., Kulldorff, M., & Huang, L. (2006). Evaluation of Spatial Scan Statistics for Irregularly Shaped Clusters. Journal of Computational and Graphical Statistics, 15(2), 428-442. Retrieved from http://www.jstor.org/stable/27594187}
+\format{A matrix}
 \description{
 The hotspot region indices for each benchmark
 data set 
@@ -25,6 +23,9 @@ vector of hotspot indices.  Available data sets are
 a_hotspot, b_hotspot, c_hotspot, d_hotspot, 
 e_hotspot, f_hotspot, g_hotspot, h_hotspot, 
 i_hotspot, j_hotspot, k_hotspot.
+}
+\references{
+Duczmal, L., Kulldorff, M., & Huang, L. (2006). Evaluation of Spatial Scan Statistics for Irregularly Shaped Clusters. Journal of Computational and Graphical Statistics, 15(2), 428-442. Retrieved from http://www.jstor.org/stable/27594187
 }
 \seealso{
 neastdata

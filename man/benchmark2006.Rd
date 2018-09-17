@@ -14,15 +14,16 @@
 \alias{j}
 \alias{k}
 \title{Irregular benchmark data from 2006}
-\format{A matrix
-
-Duczmal, L., Kulldorff, M., & Huang, L. (2006). Evaluation of Spatial Scan Statistics for Irregularly Shaped Clusters. Journal of Computational and Graphical Statistics, 15(2), 428-442. Retrieved from http://www.jstor.org/stable/27594187}
+\format{A matrix}
 \description{
 Benchmark data sets with irregularly shaped clusters 
 from Duczmal et al. (2006).  Each data set is 10000 x
 245 matrix.  Each row provides the number of cases
 in each region for a particular simulated data set.
 Available data sets are a, b, c, d, e, f, g, h, i, j, k.
+}
+\references{
+Duczmal, L., Kulldorff, M., & Huang, L. (2006). Evaluation of Spatial Scan Statistics for Irregularly Shaped Clusters. Journal of Computational and Graphical Statistics, 15(2), 428-442. Retrieved from http://www.jstor.org/stable/27594187
 }
 \seealso{
 neastdata

@@ -9,9 +9,8 @@
 #' @name a
 #' @rdname benchmark2006
 #' @docType data
-#' @references 
 #' @format A matrix
-#' 
+#' @references 
 #' Duczmal, L., Kulldorff, M., & Huang, L. (2006). Evaluation of Spatial Scan Statistics for Irregularly Shaped Clusters. Journal of Computational and Graphical Statistics, 15(2), 428-442. Retrieved from http://www.jstor.org/stable/27594187
 #'
 #' @format  A matrix

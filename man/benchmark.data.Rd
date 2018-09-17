@@ -2,7 +2,7 @@
 % Please edit documentation in R/benchmark.data.R
 \name{benchmark.data}
 \alias{benchmark.data}
-\title{Benchmark data sets}
+\title{Automatic benchmarking of data sets}
 \usage{
 benchmark.data(TESTFUN, test.name, data.name, SAVE = FALSE, ...)
 }
@@ -16,20 +16,21 @@ benchmark.data(TESTFUN, test.name, data.name, SAVE = FALSE, ...)
 \item{SAVE}{A logical value indicating whether the results
 should be saved as an rda file.  If \code{TRUE}, then the
 file is saved as 
-\code{paste("t", null.name, "_", test.name, ".rda", sep = "")}
-to the current working directly.  If FALSE, the vector is returned.
+\code{paste("t", data.name, "_", test.name, ".rda", sep = "")}
+to the current working directly.  If FALSE, a list of
+results is returned.
 Default is \code{FALSE}.}
 
-\item{...}{Additional arguments passed on to the MAXFUN and \code{\link[pbapply]{pbapply}}.}
+\item{...}{Additional arguments passed on to the TESTFUN and \code{\link[pbapply]{pbapply}}.}
 }
 \value{
-A vector of the largest test statistics for each simulated data set, or writing out to an rda file.
+A list of results or writing out to an rda file.
 }
 \description{
 This function provides an automated mechanism for 
 producing the largest test statistic for each simulated
-data set in one of the \code{\link{benchmark2003}} or
-\code{\link{benchmark2006}} data sets.
+data set in one of the \code{benchmark2003} or
+\code{benchmark2006} data sets.
 }
 \details{
 For the specified data sets, \code{TESTFUN} is applied
@@ -63,7 +64,7 @@ mlc.scan.test = function(cases, zones, ein, eout, ty) {
   # compute yin for each zone
   yin = sapply(zones, function(zone) sum(cases[zone]))
   # take max over statistics of all zones
-  tobs = scan.stat(yin, ein, eout, ty)
+  tobs = smerc::scan.stat(yin, ein, eout, ty)
   wmax = which.max(tobs)
   return(list(tmax = tobs[wmax],
               mlc = zones[[wmax]]))

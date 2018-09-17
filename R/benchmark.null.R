@@ -51,7 +51,7 @@
 #'   # compute yin for each zone
 #'   yin = sapply(zones, function(zone) sum(cases[zone]))
 #'   # take max over statistics of all zones
-#'   max(scan.stat(yin, ein, eout, ty))
+#'   max(smerc::scan.stat(yin, ein, eout, ty))
 #' }
 #' 
 #' benchmark.null(MAXFUN = max.scan.stat,
@@ -75,7 +75,7 @@ benchmark.null = function(MAXFUN, test.name,
 
   save_nm = paste("t", null.name, "_", test.name, ".rda", sep = "")
   
-  do.call(data, list(null.name))
+  do.call(utils::data, list(null.name))
   oname = paste("t", null.name, sep = "")
   tnull = pbapply::pbapply(get(null.name), 1, 
                            FUN = MAXFUN, ...)

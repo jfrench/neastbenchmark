@@ -65,7 +65,7 @@ max.scan.stat = function(cases, zones, ein, eout, ty) {
   # compute yin for each zone
   yin = sapply(zones, function(zone) sum(cases[zone]))
   # take max over statistics of all zones
-  max(scan.stat(yin, ein, eout, ty))
+  max(smerc::scan.stat(yin, ein, eout, ty))
 }
 
 benchmark.null(MAXFUN = max.scan.stat,

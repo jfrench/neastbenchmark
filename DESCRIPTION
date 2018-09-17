@@ -7,7 +7,8 @@ Maintainer: Joshua French <joshua.french@ucdenver.edu>
 Description: This package contains benchmark data for evaluating the power of disease clustering methods. The data are based on the female at-risk population in 245 counties (and equivalents) based on the 1990 United States census. The data consist of regions from the Northeastern United States, including regions in Connecticut, Delaware, the District of Columbia, Maine, Maryland, Massachusetts, New Hampshire, New Jersey, New York, Pennsylvania, Rhode Island, and Vermont.    Each county is geographically represented by a centroid coordinate. The observational data were originally used to identify clusters of breast cancer mortality in Kulldorff et al. (1997). The original circular cluster benchmark data were produced by Song and Kulldorff (2003). The irregularly-shaped cluster benchmark data were produced by Duczmal et al. (2006).
 License: GPL-2
 Depends: R (>= 2.10)
-Suggests: sp, spdep
+Imports: pbapply
+Suggests: smerc, sp, spdep
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.0
