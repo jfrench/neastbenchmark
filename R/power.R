@@ -14,10 +14,10 @@
 #' tnull = 1:99
 #' tdata = list(list(tmax = 96, mlc = c(50, 51)),
 #'              list(tmax = 101, mlc = c(48, 57)))
-#' power(tnull, tdata, 50, type = "basic")
-#' power(tnull, tdata, 50, type = "touch")
-#' power(tnull, tdata, 50, type = "overlap")
-power = function(tnull, tdata, hotspot, type = "basic", alpha = c(0.05, 0.01)) {
+#' cpower(tnull, tdata, 50, type = "basic")
+#' cpower(tnull, tdata, 50, type = "touch")
+#' cpower(tnull, tdata, 50, type = "overlap")
+cpower = function(tnull, tdata, hotspot, type = "basic", alpha = c(0.05, 0.01)) {
   # sort all max statistics
   quants = sort(tnull)
   # determine location of appropriate quantiles

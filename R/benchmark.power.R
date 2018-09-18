@@ -35,8 +35,8 @@ benchmark.power = function(test.name,
     do.call(utils::data, list(paste(x, "_hotspot", sep = "")))
     assign("hotspot", get(paste(x, "_hotspot", sep = "")))
     # compute power
-    power(tnull, tdata, hotspot, type = type, 
-          alpha = alpha)
+    cpower(tnull, tdata, hotspot, type = type, 
+           alpha = alpha)
   })))
 }
   
