@@ -13,6 +13,7 @@
 \alias{i}
 \alias{j}
 \alias{k}
+\alias{cc}
 \title{Irregular benchmark data from 2006}
 \format{A matrix}
 \description{

@@ -77,3 +77,11 @@ NULL
 #' @format NULL
 #' @docType data
 NULL
+
+#' @name cc
+#' @rdname benchmark2006
+#' @format NULL
+#' @docType data
+NULL
+
+

@@ -75,17 +75,17 @@ benchmark.data = function(TESTFUN, test.name,
   outlist = vector("list", length(data.name))
   for (idx in seq_along(data.name)) {
     dname = data.name[idx]
-    if(dname == "c") {
-      data(c)
-      message("Analyzing c")
-      tc = pbapply::pbapply(c, 1, 
+    if (dname == "c") {
+      utils::data("cc")
+      message(paste("Analyzing c"))
+      tc = pbapply::pbapply(get("cc"), 1, 
                                FUN = TESTFUN, 
                                ...)
       save_nm = paste("tc_", test.name, ".rda", sep = "")
       if (SAVE) {
         save(tc, file = save_nm, compress = "bzip2")
       } else {
-        outlist[[idx]] = c
+        outlist[[idx]] = tc
       }
     } else {
       do.call(utils::data, list(dname))
