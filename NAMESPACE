@@ -3,4 +3,4 @@
 export(benchmark.data)
 export(benchmark.null)
 export(benchmark.power)
-export(power)
+export(cpower)

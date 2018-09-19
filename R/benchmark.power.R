@@ -2,7 +2,7 @@
 #'
 #' @param test.name The name of the test being applied.
 #' @param data.name The name(s) of the data sets to be tested.
-#' @inheritParams power 
+#' @inheritParams cpower 
 #'
 #' @return A data.frame
 #' @export
