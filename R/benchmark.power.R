@@ -17,6 +17,11 @@ benchmark.power = function(test.name,
                            data.name, 
                            type = "basic",
                            alpha = c(0.05, 0.01)) {
+  if (length(type) != 1) stop("type must have length 1")
+  if (!is.element(type, 
+                  c("basic", "intersect", "overlap", "contain"))) {
+    stop("invalid choice for type")
+  }
   as.data.frame(t(sapply(data.name, function(x) {
     message(paste("Analyzing", x))
     # determine null
