@@ -15,8 +15,8 @@
 #' @param tnull The set of null test statistics
 #' @param tdata The list of maximum test statistics (\code{tmax}) and most likely cluster (\code{mlc}) for each simulated data set.
 #' @param hotspot A vector containing the hotspot indices for the current data set.
-#' @param type The type of power to compute.  \code{"basic"} simply determines whether a cluster is detected at the provided \code{alpha} leves.  \code{type = "touch"} computes
-#' the proportion of tests where the significant clusters intersect the true cluster. \code{"overlap"} computers the average proportion of the hotspot detected across all simulations.
+#' @param type The type of power to compute.  Options are \code{"basic"}, 
+#' \code{"intersect"}, \code{"overlap"}, \code{"contain"}.  The default is \code{"basic"}.
 #' @param alpha The type I error rate.  Default is \code{c(0.05, 0.01)}.
 #'
 #' @return A vector of power calculations.

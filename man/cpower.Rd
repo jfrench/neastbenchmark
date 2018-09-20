@@ -13,8 +13,8 @@ cpower(tnull, tdata, hotspot, type = "basic", alpha = c(0.05, 0.01))
 
 \item{hotspot}{A vector containing the hotspot indices for the current data set.}
 
-\item{type}{The type of power to compute.  \code{"basic"} simply determines whether a cluster is detected at the provided \code{alpha} leves.  \code{type = "touch"} computes
-the proportion of tests where the significant clusters intersect the true cluster. \code{"overlap"} computers the average proportion of the hotspot detected across all simulations.}
+\item{type}{The type of power to compute.  Options are \code{"basic"}, 
+\code{"intersect"}, \code{"overlap"}, \code{"contain"}.  The default is \code{"basic"}.}
 
 \item{alpha}{The type I error rate.  Default is \code{c(0.05, 0.01)}.}
 }
