@@ -52,6 +52,26 @@
 \alias{urbmix04_6000}
 \alias{urbmix08_6000}
 \alias{urbmix16_6000}
+\alias{rururb01_6000}
+\alias{rururb02_6000}
+\alias{rururb04_6000}
+\alias{rururb08_6000}
+\alias{rururb16_6000}
+\alias{rurmixurb01_6000}
+\alias{rurmixurb02_6000}
+\alias{rurmixurb04_6000}
+\alias{rurmixurb08_6000}
+\alias{rurmixurb16_6000}
+\alias{rururb01}
+\alias{rururb02}
+\alias{rururb04}
+\alias{rururb08}
+\alias{rururb16}
+\alias{rurmixurb01}
+\alias{rurmixurb02}
+\alias{rurmixurb04}
+\alias{rurmixurb08}
+\alias{rurmixurb16}
 \title{Benchmark data from 2003}
 \format{A matrix}
 \description{
@@ -64,11 +84,15 @@ rural01, rural02, rural04, mixed08, rural16,
 urban01, urban02, urban04, urban08, urban16,
 urbmix01, urbmix02, urbmix04, urbmix08, urbmix16,
 rurmix01, rurmix02, rurmix04, rurmix08, rurmix16,
+rururb01, rururb02, rurub04, rururb08, rururb16,
+rurmixurb01, rurmixurb02, rurmixurb04, rurmixurb08, rurmixurb16,
 mixed01_6000, mixed02_6000, mixed04_6000, mixed08_6000, mixed16_6000,
 rural01_6000, rural02_6000, rural04_6000, mixed08_6000, rural16_6000,
 urban01_6000, urban02_6000, urban04_6000, urban08_6000, urban16_6000,
 urbmix01_6000, urbmix02_6000, urbmix04_6000, urbmix08_6000, urbmix16_6000,
-rurmix01_6000, rurmix02_6000, rurmix04_6000, rurmix08_6000, rurmix16_6000.
+rurmix01_6000, rurmix02_6000, rurmix04_6000, rurmix08_6000, rurmix16_6000,
+rururb01_6000, rururb02_6000, rururb04_6000, rururb08_6000, rururb16_6000,
+rurmixurb01_6000, rurmixurb02_6000, rurmixurb04_6000, rurmixurb08_6000, rurmixurb16_6000.
 }
 \references{
 Martin Kulldorff, Eric J. Feuer, Barry A.

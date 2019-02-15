@@ -52,6 +52,26 @@
 \alias{urbmix04_6000_hotspot}
 \alias{urbmix08_6000_hotspot}
 \alias{urbmix16_6000_hotspot}
+\alias{rururb01_6000_hotspot}
+\alias{rururb02_6000_hotspot}
+\alias{rururb04_6000_hotspot}
+\alias{rururb08_6000_hotspot}
+\alias{rururb16_6000_hotspot}
+\alias{rurmixurb01_6000_hotspot}
+\alias{rurmixurb02_6000_hotspot}
+\alias{rurmixurb04_6000_hotspot}
+\alias{rurmixurb08_6000_hotspot}
+\alias{rurmixurb16_6000_hotspot}
+\alias{rururb01_hotspot}
+\alias{rururb02_hotspot}
+\alias{rururb04_hotspot}
+\alias{rururb08_hotspot}
+\alias{rururb16_hotspot}
+\alias{rurmixurb01_hotspot}
+\alias{rurmixurb02_hotspot}
+\alias{rurmixurb04_hotspot}
+\alias{rurmixurb08_hotspot}
+\alias{rurmixurb16_hotspot}
 \title{Benchmark data from 2003}
 \format{A vector}
 \description{
@@ -64,11 +84,15 @@ rural01_hotspot, rural02_hotspot, rural04_hotspot, mixed08_hotspot, rural16_hots
 urban01_hotspot, urban02_hotspot, urban04_hotspot, urban08_hotspot, urban16_hotspot,
 urbmix01_hotspot, urbmix02_hotspot, urbmix04_hotspot, urbmix08_hotspot, urbmix16_hotspot,
 rurmix01_hotspot, rurmix02_hotspot, rurmix04_hotspot, rurmix08_hotspot, rurmix16_hotspot,
+rururb01_hotspot, rururb_02_hotspot, rururb04_hotspot, rururb08_hotspot, rururb16_hotspot,
+rurmixurb01_hotspot, rurmixurb02_hotspot, rurmixurb04_hotspot, rurmixurb08_hotspot, rurmixurb16_hotspot,
 mixed01_6000_hotspot, mixed02_6000_hotspot, mixed04_6000_hotspot, mixed08_6000_hotspot, mixed16_6000_hotspot,
 rural01_6000_hotspot, rural02_6000_hotspot, rural04_6000_hotspot, mixed08_6000_hotspot, rural16_6000_hotspot,
 urban01_6000_hotspot, urban02_6000_hotspot, urban04_6000_hotspot, urban08_6000_hotspot, urban16_6000_hotspot,
 urbmix01_6000_hotspot, urbmix02_6000_hotspot, urbmix04_6000_hotspot, urbmix08_6000_hotspot, urbmix16_6000_hotspot,
-rurmix01_6000_hotspot, rurmix02_6000_hotspot, rurmix04_6000_hotspot, rurmix08_6000_hotspot, rurmix16_6000_hotspot.
+rurmix01_6000_hotspot, rurmix02_6000_hotspot, rurmix04_6000_hotspot, rurmix08_6000_hotspot, rurmix16_6000_hotspot,
+rururb01_6000_hotspot, rururb02_6000_hotspot, rururb04_6000_hotspot, rururb08_6000_hotspot, rururb16_6000_hotspot,
+rurmixurb01_6000_hotspot, rurmixurb_02_6000_hotspot, rurmixurb04_6000_hotspot, rurmixurb08_6000_hotspot, rurmixurb16_6000_hotspot.
 }
 \references{
 Martin Kulldorff, Eric J. Feuer, Barry A.

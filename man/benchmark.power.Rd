@@ -4,16 +4,12 @@
 \alias{benchmark.power}
 \title{Benchmark power of test}
 \usage{
-benchmark.power(test.name, data.name, type = "basic", alpha = c(0.05,
-  0.01))
+benchmark.power(test.name, data.name, alpha = c(0.05, 0.01))
 }
 \arguments{
 \item{test.name}{The name of the test being applied.}
 
 \item{data.name}{The name(s) of the data sets to be tested.}
-
-\item{type}{The type of power to compute.  Options are \code{"basic"}, 
-\code{"intersect"}, \code{"overlap"}, \code{"contain"}.  The default is \code{"basic"}.}
 
 \item{alpha}{The type I error rate.  Default is \code{c(0.05, 0.01)}.}
 }
@@ -26,7 +22,6 @@ Benchmark power of test
 \examples{
 \dontrun{
 benchmark.power("scan_stat", 
-                data.name = c("mixed01", "mixed01_6000"),
-                type = "basic")
+                data.name = c("mixed01", "mixed01_6000"))
 }
 }

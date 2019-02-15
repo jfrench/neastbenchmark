@@ -10,18 +10,11 @@
 #' @examples
 #' \dontrun{
 #' benchmark.power("scan_stat", 
-#'                 data.name = c("mixed01", "mixed01_6000"),
-#'                 type = "basic")
+#'                 data.name = c("mixed01", "mixed01_6000"))
 #' }
 benchmark.power = function(test.name,
                            data.name, 
-                           type = "basic",
                            alpha = c(0.05, 0.01)) {
-  if (length(type) != 1) stop("type must have length 1")
-  if (!is.element(type, 
-                  c("basic", "intersect", "overlap", "contain"))) {
-    stop("invalid choice for type")
-  }
   as.data.frame(t(sapply(data.name, function(x) {
     message(paste("Analyzing", x))
     # determine null
@@ -40,8 +33,7 @@ benchmark.power = function(test.name,
     do.call(utils::data, list(paste(x, "_hotspot", sep = "")))
     assign("hotspot", get(paste(x, "_hotspot", sep = "")))
     # compute power
-    cpower(tnull, tdata, hotspot, type = type, 
-           alpha = alpha)
+    cpower(tnull, tdata, hotspot, alpha = alpha)
   })))
 }
   

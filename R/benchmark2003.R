@@ -9,11 +9,15 @@
 #' urban01, urban02, urban04, urban08, urban16,
 #' urbmix01, urbmix02, urbmix04, urbmix08, urbmix16,
 #' rurmix01, rurmix02, rurmix04, rurmix08, rurmix16,
+#' rururb01, rururb02, rurub04, rururb08, rururb16,
+#' rurmixurb01, rurmixurb02, rurmixurb04, rurmixurb08, rurmixurb16,
 #' mixed01_6000, mixed02_6000, mixed04_6000, mixed08_6000, mixed16_6000,
 #' rural01_6000, rural02_6000, rural04_6000, mixed08_6000, rural16_6000,
 #' urban01_6000, urban02_6000, urban04_6000, urban08_6000, urban16_6000,
 #' urbmix01_6000, urbmix02_6000, urbmix04_6000, urbmix08_6000, urbmix16_6000,
-#' rurmix01_6000, rurmix02_6000, rurmix04_6000, rurmix08_6000, rurmix16_6000.
+#' rurmix01_6000, rurmix02_6000, rurmix04_6000, rurmix08_6000, rurmix16_6000,
+#' rururb01_6000, rururb02_6000, rururb04_6000, rururb08_6000, rururb16_6000,
+#' rurmixurb01_6000, rurmixurb02_6000, rurmixurb04_6000, rurmixurb08_6000, rurmixurb16_6000.
 #'
 #' @name mixed01
 #' @rdname benchmark2003
@@ -330,4 +334,123 @@ NULL
 #' @docType data
 NULL
 
+#' @name rururb01_6000
+#' @rdname benchmark2003
+#' @format NULL
+#' @docType data
+NULL
+
+#' @name rururb02_6000
+#' @rdname benchmark2003
+#' @format NULL
+#' @docType data
+NULL
+
+#' @name rururb04_6000
+#' @rdname benchmark2003
+#' @format NULL
+#' @docType data
+NULL
+
+#' @name rururb08_6000
+#' @rdname benchmark2003
+#' @format NULL
+#' @docType data
+NULL
+
+#' @name rururb16_6000
+#' @rdname benchmark2003
+#' @format NULL
+#' @docType data
+NULL
+
+#' @name rurmixurb01_6000
+#' @rdname benchmark2003
+#' @format NULL
+#' @docType data
+NULL
+
+#' @name rurmixurb02_6000
+#' @rdname benchmark2003
+#' @format NULL
+#' @docType data
+NULL
+
+#' @name rurmixurb04_6000
+#' @rdname benchmark2003
+#' @format NULL
+#' @docType data
+NULL
+
+#' @name rurmixurb08_6000
+#' @rdname benchmark2003
+#' @format NULL
+#' @docType data
+NULL
+
+#' @name rurmixurb16_6000
+#' @rdname benchmark2003
+#' @format NULL
+#' @docType data
+NULL
+
+#' @name rururb01
+#' @rdname benchmark2003
+#' @format NULL
+#' @docType data
+NULL
+
+#' @name rururb02
+#' @rdname benchmark2003
+#' @format NULL
+#' @docType data
+NULL
+
+#' @name rururb04
+#' @rdname benchmark2003
+#' @format NULL
+#' @docType data
+NULL
+
+#' @name rururb08
+#' @rdname benchmark2003
+#' @format NULL
+#' @docType data
+NULL
+
+#' @name rururb16
+#' @rdname benchmark2003
+#' @format NULL
+#' @docType data
+NULL
+
+#' @name rurmixurb01
+#' @rdname benchmark2003
+#' @format NULL
+#' @docType data
+NULL
+
+#' @name rurmixurb02
+#' @rdname benchmark2003
+#' @format NULL
+#' @docType data
+NULL
+
+#' @name rurmixurb04
+#' @rdname benchmark2003
+#' @format NULL
+#' @docType data
+NULL
+
+#' @name rurmixurb08
+#' @rdname benchmark2003
+#' @format NULL
+#' @docType data
+NULL
+
+#' @name rurmixurb16
+#' @rdname benchmark2003
+#' @format NULL
+#' @docType data
+NULL
 

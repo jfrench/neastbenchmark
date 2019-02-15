@@ -4,7 +4,7 @@
 \alias{cpower}
 \title{Compute power of test}
 \usage{
-cpower(tnull, tdata, hotspot, type = "basic", alpha = c(0.05, 0.01))
+cpower(tnull, tdata, hotspot, alpha = c(0.05, 0.01))
 }
 \arguments{
 \item{tnull}{The set of null test statistics}
@@ -12,9 +12,6 @@ cpower(tnull, tdata, hotspot, type = "basic", alpha = c(0.05, 0.01))
 \item{tdata}{The list of maximum test statistics (\code{tmax}) and most likely cluster (\code{mlc}) for each simulated data set.}
 
 \item{hotspot}{A vector containing the hotspot indices for the current data set.}
-
-\item{type}{The type of power to compute.  Options are \code{"basic"}, 
-\code{"intersect"}, \code{"overlap"}, \code{"contain"}.  The default is \code{"basic"}.}
 
 \item{alpha}{The type I error rate.  Default is \code{c(0.05, 0.01)}.}
 }
@@ -38,8 +35,5 @@ most likely cluster entirely contained the true hotspot.
 tnull = 1:99
 tdata = list(list(tmax = 96, mlc = c(50, 51)),
              list(tmax = 101, mlc = c(48, 57)))
-cpower(tnull, tdata, 50, type = "basic")
-cpower(tnull, tdata, 50, type = "intersect")
-cpower(tnull, tdata, 50, type = "overlap")
-cpower(tnull, tdata, 50, type = "contain")
+cpower(tnull, tdata, 50)
 }
