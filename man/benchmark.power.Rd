@@ -2,16 +2,43 @@
 % Please edit documentation in R/benchmark.power.R
 \name{benchmark.power}
 \alias{benchmark.power}
+\alias{benchmark.sensitivity}
+\alias{benchmark.recall}
+\alias{benchmark.tpr}
+\alias{benchmark.specificity}
+\alias{benchmark.selectivity}
+\alias{benchmark.tnr}
+\alias{benchmark.ppv}
+\alias{benchmark.precision}
 \title{Benchmark power of test}
 \usage{
 benchmark.power(test.name, data.name, alpha = c(0.05, 0.01))
+
+benchmark.sensitivity(test.name, data.name, pop, alpha = c(0.05, 0.01))
+
+benchmark.recall(test.name, data.name, pop, alpha = c(0.05, 0.01))
+
+benchmark.tpr(test.name, data.name, pop, alpha = c(0.05, 0.01))
+
+benchmark.specificity(test.name, data.name, pop, alpha = c(0.05, 0.01))
+
+benchmark.selectivity(test.name, data.name, pop, alpha = c(0.05, 0.01))
+
+benchmark.tnr(test.name, data.name, pop, alpha = c(0.05, 0.01))
+
+benchmark.ppv(test.name, data.name, pop, alpha = c(0.05, 0.01))
+
+benchmark.precision(test.name, data.name, pop, alpha = c(0.05, 0.01))
 }
 \arguments{
 \item{test.name}{The name of the test being applied.}
 
 \item{data.name}{The name(s) of the data sets to be tested.}
 
-\item{alpha}{The type I error rate.  Default is \code{c(0.05, 0.01)}.}
+\item{alpha}{The type I error rate.  Default is
+\code{c(0.05, 0.01)}.}
+
+\item{pop}{A vector with the populations associated with each region.}
 }
 \value{
 A data.frame
