@@ -1,10 +1,10 @@
 #' Compute positive predictive value
 #'
-#' Compute the empirical positive predictive value of a
+#' Compute the empirical positive predictive value (ppv) of a
 #' method from a series of tests.  In this context, the
-#' sensitivity is the average proportion of the population
-#' of the most likely cluster that intersects the true
-#' hotspot.  The function requires the null test statistics,
+#' ppv is the average proportion of the true hostpot that
+#' intersects the most likely cluster.
+#' The function requires the null test statistics,
 #' the results from the observed data sets (i.e., the
 #' maximum test statistic and most likely cluster from each
 #' data set), the true hotspot locations, and the vector of
@@ -53,6 +53,7 @@ ppv = function(tnull, tdata, hotspot, pop, alpha = c(0.05, 0.01)) {
     pop_inter = sum(pop[inter])
     pop_mlc = sum(pop[tdata[[i]]$mlc])
     out[i, ] * pop_inter/pop_mlc
+    # pop_inter/pop_mlc
   })
   
   if (length(p) == length(tdata)) {

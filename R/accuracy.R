@@ -1,18 +1,15 @@
-#' Compute specificity/selectivity/true negative rate
+#' Compute accuracy
 #'
-#' Compute the empirical specificity/selectivity/true negative
-#' rate of a method from a series of tests.  In this
-#' context, the specificity is the average proportion of the
-#' population of the true null region that lies outside the most
-#' likely cluster.  The function requires the null test
-#' statistics, the results from the observed data sets
-#' (i.e., the maximum test statistic and most likely cluster
-#' from each data set), the true hotspot locations, and the
-#' vector of population sizes for each region.  See Details.
-#'
-#' In this context, the specificity is the proportion of the
-#' true null region population lying outside the most likely
-#' cluster, averaged over all tests.
+#' Compute the empirical accuracy of a method from a series
+#' of tests.  In this context, the accuracy is the average
+#' proportion of the the total population that was correctly
+#' placed within the cluster (for the outbreak regions) or
+#' outside the cluster (for the null regions).  The function
+#' requires the null test statistics, the results from the
+#' observed data sets (i.e., the maximum test statistic and
+#' most likely cluster from each data set), the true hotspot
+#' locations, and the vector of population sizes for each
+#' region.  See Details.
 #'
 #' @inheritParams sensitivity
 #'
@@ -23,8 +20,8 @@
 #' tnull = 1:99
 #' tdata = list(list(tmax = 96, mlc = c(50, 51)),
 #'              list(tmax = 101, mlc = c(48, 57)))
-#' specificity(tnull, tdata, 50, pop = rep(10, 100))
-specificity = function(tnull, tdata, hotspot, pop, alpha = c(0.05, 0.01)) {
+#' accuracy(tnull, tdata, 50, pop = rep(10, 100))
+accuracy = function(tnull, tdata, hotspot, pop, alpha = c(0.05, 0.01)) {
   if (length(pop) <= 1) {
     stop("pop should be the vector of population sizes for each region. It should have length more than 1.")
   }
@@ -52,20 +49,34 @@ specificity = function(tnull, tdata, hotspot, pop, alpha = c(0.05, 0.01)) {
   })
   colnames(out) = alpha
 
+  # total population
+  tpop = sum(pop)
+  
+  # determine null region
   all_regions = seq_along(pop)
   null_region = setdiff(all_regions, hotspot)
-  pop_hotspot = sum(pop[hotspot])
-  pop_null = sum(pop) - pop_hotspot
+  # sum of population in null region
+  pop_null = sum(pop[null_region])
   
   p = sapply(seq_along(tdata), function(i) {
+    # compute regions accurately predicted as hotspots
+    inter = intersect(tdata[[i]]$mlc, hotspot)
+    # is test significant
+    is_sig = out[i, ]
+    # if test is significant, computer sum of population
+    # in inter, otherwise, the population correctly
+    # identified as part of the cluster is 0.
+    pop_inter = is_sig * sum(pop[inter])
+    # compute regions accurately predicted as null regions
     outer = setdiff(all_regions, tdata[[i]]$mlc)
     outer = intersect(outer, null_region)
     pop_outer = sum(pop[outer])
-    # proportion of null population intersecting outer
-    temp = out[i, ] * pop_outer/pop_null
-    # if we didn't reject, we "detected" the entire null region
-    temp[-which(out[i,])] = 1
-    temp
+    # if the test wasn't significant, the entire null
+    # population was correctly identified
+    pop_outer = (pop_outer * is_sig)
+    pop_outer[is_sig == 0] = pop_null
+    
+    (pop_inter + pop_outer)/tpop
   })
   
   if (length(p) == length(tdata)) {
@@ -74,13 +85,3 @@ specificity = function(tnull, tdata, hotspot, pop, alpha = c(0.05, 0.01)) {
     return(rowMeans(p))
   }
 }
-
-#' @name selectivity
-#' @rdname specificity
-#' @export
-selectivity = specificity
-
-#' @name tnr
-#' @rdname specificity
-#' @export
-tnr = specificity

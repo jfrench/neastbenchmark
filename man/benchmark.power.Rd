@@ -10,6 +10,8 @@
 \alias{benchmark.tnr}
 \alias{benchmark.ppv}
 \alias{benchmark.precision}
+\alias{benchmark.npv}
+\alias{benchmark.accuracy}
 \title{Benchmark power of test}
 \usage{
 benchmark.power(test.name, data.name, alpha = c(0.05, 0.01))
@@ -29,6 +31,10 @@ benchmark.tnr(test.name, data.name, pop, alpha = c(0.05, 0.01))
 benchmark.ppv(test.name, data.name, pop, alpha = c(0.05, 0.01))
 
 benchmark.precision(test.name, data.name, pop, alpha = c(0.05, 0.01))
+
+benchmark.npv(test.name, data.name, pop, alpha = c(0.05, 0.01))
+
+benchmark.accuracy(test.name, data.name, pop, alpha = c(0.05, 0.01))
 }
 \arguments{
 \item{test.name}{The name of the test being applied.}

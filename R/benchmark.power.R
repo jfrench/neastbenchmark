@@ -43,7 +43,7 @@ benchmark.sensitivity = function(test.name,
                                  data.name, 
                                  pop,
                                  alpha = c(0.05, 0.01)) {
-  as.data.frame(t(sapply(data.name, function(x) {
+  temp = as.data.frame(t(sapply(data.name, function(x) {
     message(paste("Analyzing", x))
     # determine null
     nc = nchar(x)
@@ -63,6 +63,8 @@ benchmark.sensitivity = function(test.name,
     # compute sensitivity
     sensitivity(tnull, tdata, hotspot, pop, alpha = alpha)
   })))
+  if (nrow(temp) == 1) temp = t(temp)
+  return(temp)
 }
 
 #' @rdname benchmark.power
@@ -79,7 +81,7 @@ benchmark.specificity = function(test.name,
                                  data.name, 
                                  pop,
                                  alpha = c(0.05, 0.01)) {
-  as.data.frame(t(sapply(data.name, function(x) {
+  temp = as.data.frame(t(sapply(data.name, function(x) {
     message(paste("Analyzing", x))
     # determine null
     nc = nchar(x)
@@ -99,6 +101,8 @@ benchmark.specificity = function(test.name,
     # compute specificity
     specificity(tnull, tdata, hotspot, pop, alpha = alpha)
   })))
+  if (nrow(temp) == 1) temp = t(temp)
+  return(temp)
 }
 
 #' @rdname benchmark.power
@@ -115,7 +119,7 @@ benchmark.ppv = function(test.name,
                          data.name, 
                          pop,
                          alpha = c(0.05, 0.01)) {
-  as.data.frame(t(sapply(data.name, function(x) {
+  temp = as.data.frame(t(sapply(data.name, function(x) {
     message(paste("Analyzing", x))
     # determine null
     nc = nchar(x)
@@ -135,10 +139,72 @@ benchmark.ppv = function(test.name,
     # compute ppv
     ppv(tnull, tdata, hotspot, pop, alpha = alpha)
   })))
+  if (nrow(temp) == 1) temp = t(temp)
+  return(temp)
 }
 
 #' @rdname benchmark.power
 #' @export
 benchmark.precision = benchmark.ppv
 
-  
+#' @rdname benchmark.power
+#' @export
+benchmark.npv = function(test.name,
+                         data.name, 
+                         pop,
+                         alpha = c(0.05, 0.01)) {
+  temp = as.data.frame(t(sapply(data.name, function(x) {
+    message(paste("Analyzing", x))
+    # determine null
+    nc = nchar(x)
+    if (substr(x, nc - 3, nc) == "6000") {
+      load(paste("tnull6000_",test.name,".rda", sep = ""))
+      assign("tnull", get("tnull6000"))
+    } else {
+      load(paste("tnull600_",test.name,".rda", sep = ""))
+      assign("tnull", get("tnull600"))
+    }
+    # load results
+    load(paste("t", x, "_", test.name, ".rda", sep = ""))
+    assign("tdata", get(paste("t", x, sep = "")))
+    # load hotspot information
+    do.call(utils::data, list(paste(x, "_hotspot", sep = "")))
+    assign("hotspot", get(paste(x, "_hotspot", sep = "")))
+    # compute npv
+    npv(tnull, tdata, hotspot, pop, alpha = alpha)
+  })))
+  if (nrow(temp) == 1) temp = t(temp)
+  return(temp)
+}
+
+#' @rdname benchmark.power
+#' @export
+benchmark.accuracy = function(test.name,
+                              data.name, 
+                              pop,
+                              alpha = c(0.05, 0.01)) {
+  temp = as.data.frame(t(sapply(data.name, function(x) {
+    message(paste("Analyzing", x))
+    # determine null
+    nc = nchar(x)
+    if (substr(x, nc - 3, nc) == "6000") {
+      load(paste("tnull6000_",test.name,".rda", sep = ""))
+      assign("tnull", get("tnull6000"))
+    } else {
+      load(paste("tnull600_",test.name,".rda", sep = ""))
+      assign("tnull", get("tnull600"))
+    }
+    # load results
+    load(paste("t", x, "_", test.name, ".rda", sep = ""))
+    assign("tdata", get(paste("t", x, sep = "")))
+    # load hotspot information
+    do.call(utils::data, list(paste(x, "_hotspot", sep = "")))
+    assign("hotspot", get(paste(x, "_hotspot", sep = "")))
+    # compute accuracy
+    accuracy(tnull, tdata, hotspot, pop, alpha = alpha)
+  })))
+  if (nrow(temp) == 1) temp = t(temp)
+  return(temp)
+}
+
+
