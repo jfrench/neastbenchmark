@@ -1,15 +1,17 @@
 #' Automatic benchmarking of data sets
 #' 
 #' This function provides an automated mechanism for 
-#' producing the largest test statistic for each simulated
+#' producing the identifying the most likely cluster and 
+#' largest test statistic for each simulated
 #' data set in one of the \code{benchmark2003} or
 #' \code{benchmark2006} data sets.
 #' 
 #' For the specified data sets, \code{TESTFUN} is applied
 #' to each row of the specified data sets.
 #' 
-#' If the results are saved, then the name of the data object
-#' saved is \code{paste("t", data.name, sep = "")}.
+#' If the results are saved, they are saved in the current 
+#' working directory with the name
+#' \code{paste("t", data.name, "_", test.name, ".rda", sep = "")}.
 #' 
 #' @param TESTFUN A function that returns a list containing the maximum test statistic and the indices of the most likely cluster.  The first argument MUST take a vector of cases.
 #' @param test.name The name of the test being applied.  Must be a character vector.
