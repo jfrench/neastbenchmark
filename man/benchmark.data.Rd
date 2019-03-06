@@ -28,7 +28,8 @@ A list of results or writing out to an rda file.
 }
 \description{
 This function provides an automated mechanism for 
-producing the largest test statistic for each simulated
+producing the identifying the most likely cluster and 
+largest test statistic for each simulated
 data set in one of the \code{benchmark2003} or
 \code{benchmark2006} data sets.
 }
@@ -36,8 +37,9 @@ data set in one of the \code{benchmark2003} or
 For the specified data sets, \code{TESTFUN} is applied
 to each row of the specified data sets.
 
-If the results are saved, then the name of the data object
-saved is \code{paste("t", data.name, sep = "")}.
+If the results are saved, they are saved in the current 
+working directory with the name
+\code{paste("t", data.name, "_", test.name, ".rda", sep = "")}.
 }
 \examples{
 # load required data

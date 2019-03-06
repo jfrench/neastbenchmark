@@ -25,6 +25,8 @@
 #' @param data.name The name for the \code{benchmark2003} or
 #'   \code{benchmark2006} data set to benchmark.  This can
 #'   only be a single data set.
+#' @param idx A vector with the row indices of the data set
+#' to be benchmarked.
 #' @param ... Additional arguments passed on to the
 #'   \code{TESTFUN}.
 #' @param units The units of time for printing the iterative
@@ -65,6 +67,7 @@
 #'               mlc = zones[[wmax]]))
 #' }
 #'
+#' \dontrun{
 #' benchmark.data.slow(TESTFUN = mlc.scan.test,
 #'                     test.name = "scan_test",
 #'                     data.name = "fakedata1",
@@ -73,6 +76,10 @@
 #'                     ein = ein,
 #'                     eout = eout,
 #'                     ty = 600)
+#' clean.benchmark(test.name = "scan_test",
+#'                     data.name = "fakedata1",
+#'                     idx = seq_len(10))
+#' }
 benchmark.data.slow = function(TESTFUN, test.name, 
                           data.name, 
                           idx = seq_len(10000), ..., 
@@ -104,8 +111,8 @@ benchmark.data.slow = function(TESTFUN, test.name,
     stop("The maximum of idx is not a valid row of the data set")
   }
   
-  l = list(tdata[i,], zones = zones, ein = ein,
-           eout = eout, ty = 600)
+  # l = list(tdata[i,], zones = zones, ein = ein,
+  #          eout = eout, ty = 600)
   
   for (i in idx) {
     message(paste("Analysis of row", i, "started", Sys.time()))
@@ -121,4 +128,30 @@ benchmark.data.slow = function(TESTFUN, test.name,
     saveRDS(out, file = save_nm, compress = "bzip2")
   }
   return(NULL)
+}
+
+#' @rdname benchmark.data.slow
+#' @export
+clean.benchmark = function(test.name, data.name, 
+                           idx = seq_len(10000), 
+                           SAVE = FALSE) {
+  if (data.name == "c") {
+    oname = "tc"
+  } else {
+    oname = paste("t", data.name, sep = "")
+  }
+  
+  tdata = vector("list", length(idx))
+  for (i in idx) {
+    save_nm = paste(oname, "_", test.name, "_", i, ".rds", sep = "")
+    tdata[[i]] = readRDS(save_nm)
+  }
+  
+  if (SAVE) {
+    assign(oname, tdata)
+    new_save_nm = paste(oname, "_", test.name, ".rda", sep = "")
+    save(list = oname, file = new_save_nm, compress = "bzip2")
+  } else {
+    return(tdata)
+  }
 }
