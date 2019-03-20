@@ -21,6 +21,7 @@
 #' \code{paste("t", null.name, "_", test.name, ".rda", sep = "")}
 #' to the current working directly.  If FALSE, the vector is returned.
 #' Default is \code{FALSE}.
+#' @inheritParams benchmark.data
 #' @param ... Additional arguments passed on to the MAXFUN and \code{\link[pbapply]{pbapply}}.
 #'
 #' @return A vector of the largest test statistics for each simulated data set, or writing out to an rda file.
@@ -64,7 +65,9 @@
 #'                ty = 600)
 benchmark.null = function(MAXFUN, test.name, 
                           null.name = "null600", 
-                          SAVE = FALSE, ...) {
+                          SAVE = FALSE, loop = FALSE,
+                          pfreq = 1,
+                          ...) {
   if (!is.character(test.name)) {
     stop("test.name must be a character vector")
   } 
@@ -77,8 +80,20 @@ benchmark.null = function(MAXFUN, test.name,
   
   do.call(utils::data, list(null.name))
   oname = paste("t", null.name, sep = "")
-  tnull = pbapply::pbapply(get(null.name), 1, 
-                           FUN = MAXFUN, ...)
+  if (!loop) {
+    tnull = pbapply::pbapply(get(null.name), 1, FUN = MAXFUN,
+                             ...)
+  } else {
+    ndata = get(null.name)
+    tnull = numeric(nrow(ndata))
+    for (i in seq_along(tnull)) {
+      tnull[i] = do.call(MAXFUN, list(ndata[i,], ...))
+      if ((i %% pfreq) == 0 ) {
+        message("Analysis of set ", i, " completed at ", Sys.time())
+      }
+    }
+  }
+  
   if (SAVE) {
     assign(oname, tnull)
     save(list = oname, file = save_nm, compress = "bzip2")

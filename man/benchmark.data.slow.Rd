@@ -17,7 +17,8 @@ the maximum test statistic and the indices of the most
 likely cluster.  The first argument MUST take a vector
 of cases.}
 
-\item{test.name}{The name of the test being applied.  Must be a character vector.}
+\item{test.name}{The name of the test being applied. Must
+be a character vector.}
 
 \item{data.name}{The name for the \code{benchmark2003} or
 \code{benchmark2006} data set to benchmark.  This can
@@ -33,13 +34,12 @@ to be benchmarked.}
 evaluation time.  The default is \code{"auto"}.  See
 \code{\link[base]{difftime}} for additional options.}
 
-\item{SAVE}{A logical value indicating whether the results
-should be saved as an rda file.  If \code{TRUE}, then the
-file is saved as 
-\code{paste("t", data.name, "_", test.name, ".rda", sep = "")}
-to the current working directly.  If FALSE, a list of
-results is returned.
-Default is \code{FALSE}.}
+\item{SAVE}{A logical value indicating whether the
+results should be saved as an rda file.  If
+\code{TRUE}, then the file is saved as \code{paste("t",
+data.name, "_", test.name, ".rda", sep = "")} to the
+current working directly.  If FALSE, a list of results
+is returned. Default is \code{FALSE}.}
 }
 \value{
 NULL.  Results are saved in an rda file.

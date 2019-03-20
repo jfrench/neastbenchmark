@@ -1,32 +1,46 @@
 #' Automatic benchmarking of data sets
-#' 
-#' This function provides an automated mechanism for 
-#' producing the identifying the most likely cluster and 
-#' largest test statistic for each simulated
-#' data set in one of the \code{benchmark2003} or
-#' \code{benchmark2006} data sets.
-#' 
-#' For the specified data sets, \code{TESTFUN} is applied
-#' to each row of the specified data sets.
-#' 
-#' If the results are saved, they are saved in the current 
-#' working directory with the name
-#' \code{paste("t", data.name, "_", test.name, ".rda", sep = "")}.
-#' 
-#' @param TESTFUN A function that returns a list containing the maximum test statistic and the indices of the most likely cluster.  The first argument MUST take a vector of cases.
-#' @param test.name The name of the test being applied.  Must be a character vector.
-#' @param data.name A vector of names for the \code{benchmark2003} or \code{benchmark2006} data sets.
-#' @param SAVE A logical value indicating whether the results
-#' should be saved as an rda file.  If \code{TRUE}, then the
-#' file is saved as 
-#' \code{paste("t", data.name, "_", test.name, ".rda", sep = "")}
-#' to the current working directly.  If FALSE, a list of
-#' results is returned.
-#' Default is \code{FALSE}.
-#' @param ... Additional arguments passed on to the TESTFUN and \code{\link[pbapply]{pbapply}}.
+#'
+#' This function provides an automated mechanism for
+#' producing the identifying the most likely cluster and
+#' largest test statistic for each simulated data set in one
+#' of the \code{benchmark2003} or \code{benchmark2006} data
+#' sets.
+#'
+#' For the specified data sets, \code{TESTFUN} is applied to
+#' each row of the specified data sets.
+#'
+#' If the results are saved, they are saved in the current
+#' working directory with the name \code{paste("t",
+#' data.name, "_", test.name, ".rda", sep = "")}.
+#'
+#' @param TESTFUN A function that returns a list containing
+#'   the maximum test statistic and the indices of the most
+#'   likely cluster.  The first argument MUST take a vector
+#'   of cases.
+#' @param test.name The name of the test being applied. Must
+#'   be a character vector.
+#' @param data.name A vector of names for the
+#'   \code{benchmark2003} or \code{benchmark2006} data sets.
+#' @param SAVE A logical value indicating whether the
+#'   results should be saved as an rda file.  If
+#'   \code{TRUE}, then the file is saved as \code{paste("t",
+#'   data.name, "_", test.name, ".rda", sep = "")} to the
+#'   current working directly.  If FALSE, a list of results
+#'   is returned. Default is \code{FALSE}.
+#' @param loop A logicial value indicating whether a loop
+#'   should be used to run the benchmark instead of
+#'   \code{\link[pbapply]{pbapply}}.  The default is
+#'   \code{FALSE}.
+#' @param pfreq The frequency that messages are reported
+#'   from the loop. The default is \code{pfreq = 1}, meaning
+#'   a message is returned for each index of the loop.  This
+#'   is chosen because it is assumed that this will only be
+#'   used when the method is quite slow.
+#' @param ... Additional arguments passed on to the TESTFUN
+#'   and \code{\link[pbapply]{pbapply}}.
 #'
 #' @return A list of results or writing out to an rda file.
-#' @export 
+#' @export
 #'
 #' @examples
 #' # load required data
@@ -69,7 +83,8 @@
 #'                      ty = 600)
 benchmark.data = function(TESTFUN, test.name, 
                           data.name, 
-                          SAVE = FALSE, ...) {
+                          SAVE = FALSE, loop = FALSE, 
+                          pfreq = 1, ...) {
   if (!is.character(test.name)) {
     stop("test.name must be a character vector")
   } 
@@ -80,9 +95,20 @@ benchmark.data = function(TESTFUN, test.name,
     if (dname == "c") {
       utils::data("cc")
       message(paste("Analyzing c"))
-      tc = pbapply::pbapply(get("cc"), 1, 
-                               FUN = TESTFUN, 
-                               ...)
+      if (!loop) {
+        tc = pbapply::pbapply(get("cc"), 1, FUN = TESTFUN, 
+                              ...)
+      } else {
+        cdata = get("cc")
+        tc = vector("list", nrow(cdata)) 
+        for (i in seq_along(tc)) {
+          tc[[i]] = do.call(what = TESTFUN,
+                            args = list(cdata[i,], ...))
+          if ((i %% pfreq) == 0 ) {
+            message("Analysis of set ", i, " completed at ", Sys.time())
+          } 
+        }
+      }
       save_nm = paste("tc_", test.name, ".rda", sep = "")
       if (SAVE) {
         save(tc, file = save_nm, compress = "bzip2")
@@ -93,9 +119,22 @@ benchmark.data = function(TESTFUN, test.name,
       do.call(utils::data, list(dname))
       oname = paste("t", dname, sep = "")
       message(paste("Analyzing",dname))
-      tdata = pbapply::pbapply(get(dname), 1, 
-                               FUN = TESTFUN, 
-                               ...)
+      if (!loop) {
+        tdata = pbapply::pbapply(get(dname), 1, 
+                                 FUN = TESTFUN, 
+                                 ...)
+      } else {
+        # current data
+        cdata = get(dname)
+        tdata = vector("list", nrow(cdata)) 
+        for (i in seq_along(tdata)) {
+          tdata[[i]] = do.call(what = TESTFUN,
+                               args = list(cdata[i,], ...))
+          if ((i %% pfreq) == 0 ) {
+            message("Analysis of set ", i, " completed at ", Sys.time())
+          }
+        }
+      }
       save_nm = paste(oname, "_", test.name, ".rda", sep = "")
       if (SAVE) {
         assign(oname, tdata)

@@ -5,7 +5,7 @@
 \title{Benchmark null data sets}
 \usage{
 benchmark.null(MAXFUN, test.name, null.name = "null600", SAVE = FALSE,
-  ...)
+  loop = FALSE, pfreq = 1, ...)
 }
 \arguments{
 \item{MAXFUN}{A function that returns only the maximum test statistic across all zones.  The first argument MUST take a vector of cases.}
@@ -21,6 +21,17 @@ file is saved as
 \code{paste("t", null.name, "_", test.name, ".rda", sep = "")}
 to the current working directly.  If FALSE, the vector is returned.
 Default is \code{FALSE}.}
+
+\item{loop}{A logicial value indicating whether a loop
+should be used to run the benchmark instead of
+\code{\link[pbapply]{pbapply}}.  The default is
+\code{FALSE}.}
+
+\item{pfreq}{The frequency that messages are reported
+from the loop. The default is \code{pfreq = 1}, meaning
+a message is returned for each index of the loop.  This
+is chosen because it is assumed that this will only be
+used when the method is quite slow.}
 
 \item{...}{Additional arguments passed on to the MAXFUN and \code{\link[pbapply]{pbapply}}.}
 }

@@ -4,42 +4,59 @@
 \alias{benchmark.data}
 \title{Automatic benchmarking of data sets}
 \usage{
-benchmark.data(TESTFUN, test.name, data.name, SAVE = FALSE, ...)
+benchmark.data(TESTFUN, test.name, data.name, SAVE = FALSE,
+  loop = FALSE, pfreq = 1, ...)
 }
 \arguments{
-\item{TESTFUN}{A function that returns a list containing the maximum test statistic and the indices of the most likely cluster.  The first argument MUST take a vector of cases.}
+\item{TESTFUN}{A function that returns a list containing
+the maximum test statistic and the indices of the most
+likely cluster.  The first argument MUST take a vector
+of cases.}
 
-\item{test.name}{The name of the test being applied.  Must be a character vector.}
+\item{test.name}{The name of the test being applied. Must
+be a character vector.}
 
-\item{data.name}{A vector of names for the \code{benchmark2003} or \code{benchmark2006} data sets.}
+\item{data.name}{A vector of names for the
+\code{benchmark2003} or \code{benchmark2006} data sets.}
 
-\item{SAVE}{A logical value indicating whether the results
-should be saved as an rda file.  If \code{TRUE}, then the
-file is saved as 
-\code{paste("t", data.name, "_", test.name, ".rda", sep = "")}
-to the current working directly.  If FALSE, a list of
-results is returned.
-Default is \code{FALSE}.}
+\item{SAVE}{A logical value indicating whether the
+results should be saved as an rda file.  If
+\code{TRUE}, then the file is saved as \code{paste("t",
+data.name, "_", test.name, ".rda", sep = "")} to the
+current working directly.  If FALSE, a list of results
+is returned. Default is \code{FALSE}.}
 
-\item{...}{Additional arguments passed on to the TESTFUN and \code{\link[pbapply]{pbapply}}.}
+\item{loop}{A logicial value indicating whether a loop
+should be used to run the benchmark instead of
+\code{\link[pbapply]{pbapply}}.  The default is
+\code{FALSE}.}
+
+\item{pfreq}{The frequency that messages are reported
+from the loop. The default is \code{pfreq = 1}, meaning
+a message is returned for each index of the loop.  This
+is chosen because it is assumed that this will only be
+used when the method is quite slow.}
+
+\item{...}{Additional arguments passed on to the TESTFUN
+and \code{\link[pbapply]{pbapply}}.}
 }
 \value{
 A list of results or writing out to an rda file.
 }
 \description{
-This function provides an automated mechanism for 
-producing the identifying the most likely cluster and 
-largest test statistic for each simulated
-data set in one of the \code{benchmark2003} or
-\code{benchmark2006} data sets.
+This function provides an automated mechanism for
+producing the identifying the most likely cluster and
+largest test statistic for each simulated data set in one
+of the \code{benchmark2003} or \code{benchmark2006} data
+sets.
 }
 \details{
-For the specified data sets, \code{TESTFUN} is applied
-to each row of the specified data sets.
+For the specified data sets, \code{TESTFUN} is applied to
+each row of the specified data sets.
 
-If the results are saved, they are saved in the current 
-working directory with the name
-\code{paste("t", data.name, "_", test.name, ".rda", sep = "")}.
+If the results are saved, they are saved in the current
+working directory with the name \code{paste("t",
+data.name, "_", test.name, ".rda", sep = "")}.
 }
 \examples{
 # load required data
