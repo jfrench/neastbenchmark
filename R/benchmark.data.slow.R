@@ -131,10 +131,13 @@ benchmark.data.slow = function(TESTFUN, test.name,
 }
 
 #' @rdname benchmark.data.slow
+#' @param unlist A logical indicating whether the
+#'   \code{\link[base]{unlist}} function should be applied
+#'   to the collected results.  The default is \code{FALSE}.
 #' @export
 clean.benchmark = function(test.name, data.name, 
                            idx = seq_len(10000), 
-                           SAVE = FALSE) {
+                           SAVE = FALSE, unlist = FALSE) {
   if (data.name == "c") {
     oname = "tc"
   } else {
@@ -146,7 +149,9 @@ clean.benchmark = function(test.name, data.name,
     save_nm = paste(oname, "_", test.name, "_", i, ".rds", sep = "")
     tdata[[i]] = readRDS(save_nm)
   }
-  
+  if (unlist) {
+    tdata = unlist(tdata, use.names = FALSE)
+  }
   if (SAVE) {
     assign(oname, tdata)
     new_save_nm = paste(oname, "_", test.name, ".rda", sep = "")

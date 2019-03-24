@@ -9,7 +9,7 @@ benchmark.data.slow(TESTFUN, test.name, data.name, idx = seq_len(10000),
   ..., units = "auto")
 
 clean.benchmark(test.name, data.name, idx = seq_len(10000),
-  SAVE = FALSE)
+  SAVE = FALSE, unlist = FALSE)
 }
 \arguments{
 \item{TESTFUN}{A function that returns a list containing
@@ -40,6 +40,10 @@ results should be saved as an rda file.  If
 data.name, "_", test.name, ".rda", sep = "")} to the
 current working directly.  If FALSE, a list of results
 is returned. Default is \code{FALSE}.}
+
+\item{unlist}{A logical indicating whether the
+\code{\link[base]{unlist}} function should be applied
+to the collected results.  The default is \code{FALSE}.}
 }
 \value{
 NULL.  Results are saved in an rda file.
