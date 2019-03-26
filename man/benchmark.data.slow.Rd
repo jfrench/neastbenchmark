@@ -8,7 +8,7 @@
 benchmark.data.slow(TESTFUN, test.name, data.name, idx = seq_len(10000),
   ..., units = "auto")
 
-clean.benchmark(test.name, data.name, idx = seq_len(10000),
+clean.benchmark(test.name, data.name, idx = seq_len(99999),
   SAVE = FALSE, unlist = FALSE)
 }
 \arguments{

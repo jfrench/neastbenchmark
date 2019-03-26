@@ -3,14 +3,19 @@
 \docType{data}
 \name{neastw}
 \alias{neastw}
+\alias{neastw_old}
 \title{Binary adjacency matrix for \code{neastdata}}
 \description{
 A matrix indicating the binary adjacency matrix for the
-\code{neastdata}.  Some of the islands (e.g., Nantucket) 
-are considered
-adjacent to the mainland because of ferries traveling 
-from certain 
-mainland regions to these islands.
+\code{neastdata}.  Some of the islands (e.g., Nantucket)
+are considered adjacent to the mainland because of
+ferries traveling from certain mainland regions to these
+islands. Manual connections were added for many of the
+New York counties because they are on islands. 
+\code{neastw_old} is an old version included for backwards
+compatibility.  \code{neastw_old} and has some
+imperfections related to symmetry and does not have
+as many connections for the New York counties.
 }
 \examples{
 library(spdep)

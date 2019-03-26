@@ -136,7 +136,7 @@ benchmark.data.slow = function(TESTFUN, test.name,
 #'   to the collected results.  The default is \code{FALSE}.
 #' @export
 clean.benchmark = function(test.name, data.name, 
-                           idx = seq_len(10000), 
+                           idx = seq_len(99999), 
                            SAVE = FALSE, unlist = FALSE) {
   if (data.name == "c") {
     oname = "tc"
