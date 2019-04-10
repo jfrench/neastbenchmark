@@ -127,10 +127,10 @@ benchmark.data = function(TESTFUN, test.name,
         # current data
         cdata = get(dname)
         tdata = vector("list", nrow(cdata)) 
-        for (i in seq_along(tdata)) {
-          tdata[[i]] = do.call(what = TESTFUN,
-                               args = list(cdata[i,], ...))
-          if ((i %% pfreq) == 0 ) {
+        for (iloop in seq_along(tdata)) {
+          tdata[[iloop]] = do.call(what = TESTFUN,
+                               args = list(cdata[iloop,], ...))
+          if ((iloop %% pfreq) == 0 ) {
             message("Analysis of set ", i, " completed at ", Sys.time())
           }
         }
