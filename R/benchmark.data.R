@@ -131,7 +131,7 @@ benchmark.data = function(TESTFUN, test.name,
           tdata[[iloop]] = do.call(what = TESTFUN,
                                args = list(cdata[iloop,], ...))
           if ((iloop %% pfreq) == 0 ) {
-            message("Analysis of set ", i, " completed at ", Sys.time())
+            message("Analysis of set ", iloop, " completed at ", Sys.time())
           }
         }
       }
