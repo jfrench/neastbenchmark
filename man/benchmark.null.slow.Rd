@@ -4,8 +4,14 @@
 \alias{benchmark.null.slow}
 \title{Automatic, but slow benchmarking of a null data set}
 \usage{
-benchmark.null.slow(MAXFUN, test.name, null.name, idx = seq_len(10000),
-  ..., units = "auto")
+benchmark.null.slow(
+  MAXFUN,
+  test.name,
+  null.name,
+  idx = seq_len(10000),
+  ...,
+  units = "auto"
+)
 }
 \arguments{
 \item{MAXFUN}{A function that returns only the maximum test statistic across all zones.  The first argument MUST take a vector of cases.}

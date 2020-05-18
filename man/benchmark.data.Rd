@@ -4,8 +4,15 @@
 \alias{benchmark.data}
 \title{Automatic benchmarking of data sets}
 \usage{
-benchmark.data(TESTFUN, test.name, data.name, SAVE = FALSE,
-  loop = FALSE, pfreq = 1, ...)
+benchmark.data(
+  TESTFUN,
+  test.name,
+  data.name,
+  SAVE = FALSE,
+  loop = FALSE,
+  pfreq = 1,
+  ...
+)
 }
 \arguments{
 \item{TESTFUN}{A function that returns a list containing

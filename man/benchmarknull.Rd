@@ -5,7 +5,9 @@
 \alias{null600}
 \alias{null6000}
 \title{Null data for benchmark2003 and benchmark2006}
-\format{A matrix}
+\format{
+A matrix
+}
 \description{
 The null data sets that should be used for the
 benchmark2003 and benchmark2006 data sets.  The two

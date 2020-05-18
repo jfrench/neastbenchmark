@@ -5,7 +5,9 @@
 \alias{fakedata1}
 \alias{fakedata2}
 \title{Fake data sets}
-\format{A 10 x 245 matrix.}
+\format{
+A 10 x 245 matrix.
+}
 \description{
 There are two "fake" data sets.  Each row
 represents a different simulated data set under the

@@ -5,11 +5,22 @@
 \alias{clean.benchmark}
 \title{Automatic, but slow benchmarking of a data set}
 \usage{
-benchmark.data.slow(TESTFUN, test.name, data.name, idx = seq_len(10000),
-  ..., units = "auto")
+benchmark.data.slow(
+  TESTFUN,
+  test.name,
+  data.name,
+  idx = seq_len(10000),
+  ...,
+  units = "auto"
+)
 
-clean.benchmark(test.name, data.name, idx = seq_len(99999),
-  SAVE = FALSE, unlist = FALSE)
+clean.benchmark(
+  test.name,
+  data.name,
+  idx = seq_len(99999),
+  SAVE = FALSE,
+  unlist = FALSE
+)
 }
 \arguments{
 \item{TESTFUN}{A function that returns a list containing

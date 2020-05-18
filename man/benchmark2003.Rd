@@ -73,7 +73,9 @@
 \alias{rurmixurb08}
 \alias{rurmixurb16}
 \title{Benchmark data from 2003}
-\format{A matrix}
+\format{
+A matrix
+}
 \description{
 Benchmark data sets from Song and Kulldorff (2003).
 Each data set is a 10000 x 245 matrix.  Each row

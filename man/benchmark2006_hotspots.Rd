@@ -14,7 +14,9 @@
 \alias{j_hotspot}
 \alias{k_hotspot}
 \title{Hotspots for benchmark2006 data}
-\format{A matrix}
+\format{
+A matrix
+}
 \description{
 The hotspot region indices for each benchmark
 data set 

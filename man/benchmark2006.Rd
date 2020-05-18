@@ -15,7 +15,11 @@
 \alias{k}
 \alias{cc}
 \title{Irregular benchmark data from 2006}
-\format{A matrix}
+\format{
+A matrix
+
+A matrix
+}
 \description{
 Benchmark data sets with irregularly shaped clusters 
 from Duczmal et al. (2006).  Each data set is 10000 x

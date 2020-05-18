@@ -4,8 +4,15 @@
 \alias{benchmark.null}
 \title{Benchmark null data sets}
 \usage{
-benchmark.null(MAXFUN, test.name, null.name = "null600", SAVE = FALSE,
-  loop = FALSE, pfreq = 1, ...)
+benchmark.null(
+  MAXFUN,
+  test.name,
+  null.name = "null600",
+  SAVE = FALSE,
+  loop = FALSE,
+  pfreq = 1,
+  ...
+)
 }
 \arguments{
 \item{MAXFUN}{A function that returns only the maximum test statistic across all zones.  The first argument MUST take a vector of cases.}

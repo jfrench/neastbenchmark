@@ -4,7 +4,9 @@
 \name{fakenull}
 \alias{fakenull}
 \title{Fake null data set}
-\format{A 5 x 245 matrix.}
+\format{
+A 5 x 245 matrix.
+}
 \description{
 This is a "fake" null data set.  It's simply
 the first 5 rows of \code{\link{null600}}.

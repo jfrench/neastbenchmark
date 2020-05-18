@@ -73,7 +73,9 @@
 \alias{rurmixurb08_hotspot}
 \alias{rurmixurb16_hotspot}
 \title{Benchmark data from 2003}
-\format{A vector}
+\format{
+A vector
+}
 \description{
 The hotspot region indices for each benchmark
 data set from Song and Kulldorff (2003).
