@@ -9,7 +9,7 @@
 #' must include the starting centroid.
 #' 
 #' @name irural02_hotspot
-#' @alias icluster
+#' @aliases iclusters
 #' @rdname benchmark2020_hotspots
 #' @docType data
 #' @format A matrix

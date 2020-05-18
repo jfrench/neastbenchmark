@@ -60,9 +60,6 @@ the 50 nearest neighbors of \code{rural01_hotspot},
 \code{mixed01_hotspot}, \code{urban01_hotspot}. Each hotspot
 must include the starting centroid.
 }
-\references{
-
-}
 \seealso{
 neastdata
 }
