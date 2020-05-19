@@ -3,6 +3,7 @@
 \docType{data}
 \name{irural02_hotspot}
 \alias{irural02_hotspot}
+\alias{iclusters_hotspots}
 \alias{irural03_hotspot}
 \alias{irural04_hotspot}
 \alias{irural05_hotspot}
