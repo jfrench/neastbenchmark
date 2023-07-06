@@ -18,12 +18,14 @@ imperfections related to symmetry and does not have
 as many connections for the New York counties.
 }
 \examples{
-library(spdep)
+if (require(spdep) & require(sp)) {
+data(neastpoly)
 plot(neastpoly)
 data(neastw)
-lw = mat2listw(neastw)
+lw = mat2listw(neastw, style = "B")
 plot(lw, coords = coordinates(neastpoly),
      col = "orange", add = TRUE)
+}
 }
 \references{
 Martin Kulldorff, Eric J. Feuer, Barry A.

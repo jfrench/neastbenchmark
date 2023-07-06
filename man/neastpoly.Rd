@@ -9,12 +9,10 @@ This loads a \code{SpatialPolygons} providing the borders
 for \code{neastdata}.
 }
 \examples{
-library(sp)
+if (require(sp)) {
+data(neastpoly)
 plot(neastpoly)
-neastpolydf = SpatialPolygonsDataFrame(neastpoly, 
-                                       data = neastdata, 
-                                       match = FALSE)
-spplot(neastpolydf, "cases")
+}
 }
 \references{
 Martin Kulldorff, Eric J. Feuer, Barry A.

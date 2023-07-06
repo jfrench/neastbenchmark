@@ -55,11 +55,18 @@ A matrix
 \description{
 The hotspot region indices for each benchmark
 data set 
-from French et al. (2020+). These are randomly selected
+from French et al. (2022). These are randomly selected
 subsets of connected regions of size 2, 3, ..., 16 from 
 the 50 nearest neighbors of \code{rural01_hotspot},
 \code{mixed01_hotspot}, \code{urban01_hotspot}. Each hotspot
 must include the starting centroid.
+}
+\references{
+Joshua P. French, Mohammad Meysami, Lauren M.
+Hall, Nicholas E. Weaver, Minh C. Nguyen & Lee Panter
+(2022) A comparison of spatial scan methods for cluster
+detection, Journal of Statistical Computation and
+Simulation, 92:16, 3343-3372.
 }
 \seealso{
 neastdata

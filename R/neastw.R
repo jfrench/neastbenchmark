@@ -24,12 +24,14 @@
 #' @keywords data
 #' @seealso neastdata, neastpoly
 #' @examples
-#' library(spdep)
+#' if (require(spdep) & require(sp)) {
+#' data(neastpoly)
 #' plot(neastpoly)
 #' data(neastw)
-#' lw = mat2listw(neastw)
+#' lw = mat2listw(neastw, style = "B")
 #' plot(lw, coords = coordinates(neastpoly),
 #'      col = "orange", add = TRUE)
+#' }
 NULL
 
 #' @name neastw_old

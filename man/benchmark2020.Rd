@@ -54,13 +54,20 @@ A matrix
 }
 \description{
 Benchmark data sets with irregularly shaped clusters 
-from French et al. (2020).  Each data set is 10000 x
+from French et al. (2023).  Each data set is 10000 x
 245 matrix.  Each row provides the number of cases
 in each region for a particular simulated data set.
 Available data sets are \code{irural02}, \code{irural03}, ...,
 \code{irural16}, \code{imixed02}, \code{imixed03}, ...
 \code{imixed16}, \code{iurban02}, \code{iurban03}, ...
 \code{iurban16}
+}
+\references{
+Joshua P. French, Mohammad Meysami, Lauren M.
+Hall, Nicholas E. Weaver, Minh C. Nguyen & Lee Panter
+(2022) A comparison of spatial scan methods for cluster
+detection, Journal of Statistical Computation and
+Simulation, 92:16, 3343-3372.
 }
 \seealso{
 neastdata

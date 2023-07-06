@@ -15,10 +15,8 @@
 #' @keywords data
 #' @seealso neastdata
 #' @examples
-#' library(sp)
+#' if (require(sp)) {
+#' data(neastpoly)
 #' plot(neastpoly)
-#' neastpolydf = SpatialPolygonsDataFrame(neastpoly, 
-#'                                        data = neastdata, 
-#'                                        match = FALSE)
-#' spplot(neastpolydf, "cases")
+#' }
 NULL
