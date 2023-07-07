@@ -1,6 +1,13 @@
 # neastbenchmark
 R package containing benchmark data for disease clusters
 
+The package can be installed in R via the command
+
+```
+devtools::install_github("jfrench/neastbenchmark")
+```
+assuming the **devtools** package is installed.
+
 This package contains benchmark data for evaluating the power of disease clustering methods.  The data are based on the female at-risk population in 245 counties (and equivalents) based on the 1990 United States census.  The data consist of regions from the Northeastern United States, including regions in Connecticut, Delaware, the District of Columbia, Maine, Maryland, Massachusetts, New Hampshire, New Jersey, New York, Pennsylvania, Rhode Island, and Vermont.
 
 The observational data were originally used to identify clusters of breast cancer mortality in Kulldorff et al. (1997). The original circular cluster benchmark data (`rural*`, `mixed*`, and `urban*` data sets) were produced by Song and Kulldorff (2003). The irregularly-shaped cluster benchmark data (`a`-`k`) were produced by Duczmal et al. (2006). The remaining irregularly clustered benchmark data (`irural*`, `imixed*`, `iurban*`) were produced by French et al. (2022).
