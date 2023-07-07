@@ -22,4 +22,4 @@ Joshua P. French, Mohammad Meysami, Lauren M.
 Hall, Nicholas E. Weaver, Minh C. Nguyen & Lee Panter
 (2022) A comparison of spatial scan methods for cluster
 detection, Journal of Statistical Computation and
-Simulation, 92:16, 3343-3372. https://doi.org/10.1080/00949655.2022.2065676
+Simulation, 92:16, 3343-3372. https://doi.org/10.1080/00949655.2022.2065676.

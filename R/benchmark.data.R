@@ -46,7 +46,7 @@
 #' # load required data
 #' data(neastdata)
 #' # construct zone information
-#' coords = neastdata[,c("easting", "northing")]
+#' coords = neastdata[, c("x", "y")]
 #' ubpop = 0.5
 #' pop = neastdata$population
 #' 

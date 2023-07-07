@@ -16,6 +16,10 @@
 #' \item \code{y}: A y coordinate of a centroid associated
 #' with each county provided by Kulldorff et al. (2003). See
 #' Details.
+#' \item \code{easting}: Identical to \code{x}. Retained for
+#' reverse compatibility.
+#' \item \code{northing}: Identical to \code{y}. Retained for
+#' reverse compatibility.
 #' }
 #'
 #' The \code{x} and \code{y} coordinates define centroids
