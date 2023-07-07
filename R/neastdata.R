@@ -2,13 +2,26 @@
 #'
 #' Data related to breast cancer mortality in the
 #' Northeastern United States.  The data include information
-#' from 245 counties (or similar). The name of each county
-#' is included, as well as the number of breast cancer
-#' mortality cases between 1988-1992.  The population values
-#' are based on 1990 U.S. census results.  A representative
-#' centroid of each region is proved in Easting and Northing
-#' coordinates.
+#' from 245 counties (or similar). The following variables
+#' are included in the data frame:
+#' \itemize{
+#' \item \code{id}: A name-based id for each county.
+#' \item \code{cases}: The number of breast cancer
+#' mortality cases between 1988-1992.
+#' \item \code{population}: The number of residents in the county
+#' based on 1990 U.S. census results.
+#' \item \code{x}: An x coordinate of a centroid associated
+#' with each county provided by Kulldorff et al. (2003). See
+#' Details.
+#' \item \code{y}: A y coordinate of a centroid associated
+#' with each county provided by Kulldorff et al. (2003). See
+#' Details.
+#' }
 #'
+#' The \code{x} and \code{y} coordinates define centroids
+#' associated with each county. The coordinates were
+#' provided by Kulldorf et al. (2003). The coordinate system
+#' of these coordinates is unknown.
 #' @name neastdata
 #' @docType data
 #' @references Martin Kulldorff, Eric J. Feuer, Barry A.
