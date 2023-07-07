@@ -1,5 +1,5 @@
 # neastbenchmark
-R package containing benchmark data for disease clusters
+An R package containing benchmark data for disease clusters.
 
 The package can be installed in R via the command
 
